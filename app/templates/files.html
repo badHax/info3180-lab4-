@@ -4,7 +4,12 @@
 <h1>Files:</h1>
 <ul id="listWithHandle">
       {% for name in names %}
+          {% if name.endswith('.jpg') %}
+          <li><img src="{{ url_for('static', filename='uploads/{{ name }}+') }}"></img></li>
+         {% else %}
         <li><span class="my-handle">:+:</span>{{ name }}</li>
+        
+        {% endif %}
       {% endfor %}
 </ul>
 {% endblock %}
